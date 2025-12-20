@@ -1,5 +1,7 @@
 import React from "react";
 import { Link, useLocation, Outlet } from 'react-router-dom';
+import { HomeIcon, UserGroupIcon, CalendarDaysIcon, ChatBubbleLeftRightIcon, UserCircleIcon } from '@heroicons/react/24/outline';
+
 
 const NavLink = ({ to, children }) => {
     const location = useLocation();
@@ -15,10 +17,10 @@ const NavLink = ({ to, children }) => {
 
 const MobileNavLink = ({ to, icon, children }) => {
     const location = useLocation();
-    const isActive = location.pathname === to;
+    const isActive = location.pathname.startsWith(to);
 
     return (
-        <Link to={to} className={`flex flex-col items-center transition-colors ${isActive ? 'text-blue-600' : 'text-gray-600 hover:text-blue-500'}`}>
+        <Link to={to} className={`flex flex-col items-center transition-colors w-full ${isActive ? 'text-blue-600' : 'text-gray-600 hover:text-blue-500'}`}>
              {React.cloneElement(icon, { className: "w-6 h-6 mb-1" })}
             <span className="text-xs font-medium">{children}</span>
         </Link>
@@ -61,6 +63,7 @@ const UserLayout = () => {
             <nav className="hidden md:flex items-center space-x-8">
               <NavLink to="/dashboard">Dashboard</NavLink>
               <NavLink to="/consultants">Consultants</NavLink>
+              <NavLink to="/booking">My Bookings</NavLink>
               <NavLink to="/chat">AI Chat</NavLink>
               <NavLink to="/profile">Profile</NavLink>
             </nav>
@@ -100,12 +103,13 @@ const UserLayout = () => {
         </div>
       </footer>
 
-      {/* Optional mobile bottom nav */}
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-lg py-3 flex justify-around z-40">
-        <MobileNavLink to="/dashboard" icon={<path strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" d="M3 12h18M3 6h18M3 18h18" />}>Dashboard</MobileNavLink>
-        <MobileNavLink to="/consultants" icon={<path strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12a9 9 0 11-18 0" />}>Consultants</MobileNavLink>
-        <MobileNavLink to="/chat" icon={<path strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" d="M12 20l9-8.5L12 3 3 11.5 12 20z" />}>AI Chat</MobileNavLink>
-        <MobileNavLink to="/profile" icon={<path strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" d="M5.121 17.804A13.937 13.937 0 0112 15c2.21 0 4.305.476 6.121 1.804M12 12a4 4 0 100-8 4 4 0 000 8z" />}>Profile</MobileNavLink>
+      {/* Mobile Bottom Nav */}
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-lg py-2 flex justify-around z-40">
+        <MobileNavLink to="/dashboard" icon={<HomeIcon />}>Dashboard</MobileNavLink>
+        <MobileNavLink to="/consultants" icon={<UserGroupIcon />}>Consultants</MobileNavLink>
+        <MobileNavLink to="/booking" icon={<CalendarDaysIcon />}>Bookings</MobileNavLink>
+        <MobileNavLink to="/chat" icon={<ChatBubbleLeftRightIcon />}>AI Chat</MobileNavLink>
+        <MobileNavLink to="/profile" icon={<UserCircleIcon />}>Profile</MobileNavLink>
       </nav>
 
     </div>

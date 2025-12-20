@@ -53,9 +53,14 @@ const DashboardPage = () => {
                   <p className="font-semibold text-blue-800">Upcoming Video Session</p>
                   <p className="text-blue-700">Tuesday, Dec 23, 2025 at 2:00 PM</p>
                 </div>
-                <button className="mt-4 sm:mt-0 w-full sm:w-auto py-2 px-4 rounded-lg bg-blue-500 text-white font-semibold hover:bg-blue-600 transition-colors">
-                  Join Now
-                </button>
+                <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 mt-4 sm:mt-0">
+                  <button className="w-full sm:w-auto py-2 px-4 rounded-lg bg-blue-500 text-white font-semibold hover:bg-blue-600 transition-colors">
+                    Join Now
+                  </button>
+                  <button className="w-full sm:w-auto py-2 px-4 rounded-lg bg-red-500 text-white font-semibold hover:bg-red-600 transition-colors">
+                    Cancel Session
+                  </button>
+                </div>
               </div>
             ) : (
               <div className="text-center p-4 border-2 border-dashed border-gray-200 rounded-lg">
