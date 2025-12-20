@@ -27,7 +27,7 @@ const UserLayout = ({ children }) => {
                 </svg>
               </div>
               <h1 className="text-2xl font-extrabold text-gray-900 tracking-tight">
-                Tuliaa
+                Tulia
               </h1>
             </div>
 
