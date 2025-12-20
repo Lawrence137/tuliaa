@@ -5,6 +5,7 @@ import LoginPage from './pages/Auth/LoginPage';
 import SignupPage from './pages/Auth/SignupPage';
 import DashboardPage from './pages/Dashboard/DashboardPage';
 import UserLayout from './layouts/UserLayout';
+import ConsultantsPage from './pages/Consultants/ConsultantsPage';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         {/* App Routes */}
         <Route element={<UserLayout />}>
           <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/consultants" element={<ConsultantsPage />} />
           <Route path="/chat" element={<ChatBubble />} />
           {/* Add other authenticated routes here */}
         </Route>
